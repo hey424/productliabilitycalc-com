@@ -1,0 +1,196 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = 'Product Liability Settlement Calculator | Estimate Compensation | productliabilitycalc.com';
+const description = 'Estimate the potential compensation range for a product liability claim based on defect type, product category, injury severity, and jurisdiction. Free, informational, no signup.';
+---
+<BaseLayout title={title} description={description}>
+  <h1>Product Liability Settlement Calculator</h1>
+  <p><em>Reviewed by Auden Cordell (AC), Editor-in-Chief &mdash; Product Liability Practice. Updated May 2026.</em></p>
+
+  <p>Product liability law lets a consumer recover damages from a manufacturer, distributor, or retailer when a defective product causes injury. Unlike ordinary negligence claims, most product liability cases are governed by <strong>strict liability</strong>: the injured person does not need to prove that the company was careless, only that the product was defective when it left the manufacturer's control and that the defect caused the injury. Three theories support a typical claim &mdash; <strong>design defect</strong> (the product is inherently unreasonably dangerous as designed), <strong>manufacturing defect</strong> (one unit deviated from the intended design), and <strong>failure to warn</strong> (the labeling or instructions did not adequately warn about a non-obvious risk). Breach of express or implied warranty and consumer-fraud claims often run alongside the strict liability count. This calculator estimates the potential recovery range based on the factors that drive case valuations. It is informational only and not a substitute for evaluation by an experienced product liability attorney.</p>
+
+  <h2>Run the estimate</h2>
+
+  <p>Enter the key facts of the injury and the product. The output reflects published settlement and verdict data across the major product liability case categories.</p>
+
+  <form id="calc" novalidate>
+    <label for="defect-type">Defect theory</label>
+    <select id="defect-type" name="defect-type">
+      <option value="design">Design defect (product unreasonably dangerous as designed)</option>
+      <option value="manufacturing">Manufacturing defect (one unit deviated from spec)</option>
+      <option value="failure-to-warn">Failure to warn (inadequate labeling or instructions)</option>
+      <option value="breach-of-warranty">Breach of express or implied warranty</option>
+    </select>
+
+    <label for="product-category">Product category</label>
+    <select id="product-category" name="product-category">
+      <option value="auto">Auto / motor vehicle component (airbag, tire, brake, ignition)</option>
+      <option value="pharma">Pharmaceutical (prescription or over-the-counter drug)</option>
+      <option value="medical-device">Medical device (implant, surgical mesh, pacemaker, IVC filter)</option>
+      <option value="consumer-product">Consumer product (appliance, toy, e-cigarette, lithium battery)</option>
+      <option value="industrial">Industrial equipment / power tool</option>
+      <option value="food">Food / dietary supplement contamination</option>
+      <option value="other">Other</option>
+    </select>
+
+    <label for="injury-severity">Injury severity</label>
+    <select id="injury-severity" name="injury-severity">
+      <option value="mild">Mild &mdash; treated and released, full recovery</option>
+      <option value="moderate">Moderate &mdash; required surgery or extended treatment</option>
+      <option value="serious">Serious &mdash; permanent impairment, ongoing care</option>
+      <option value="catastrophic">Catastrophic &mdash; paralysis, severe burns, traumatic brain injury</option>
+      <option value="fatal">Fatal &mdash; wrongful death</option>
+    </select>
+
+    <label for="medical-bills">Medical bills to date (USD)</label>
+    <input id="medical-bills" name="medical-bills" type="number" value="50000" min="0" />
+
+    <label for="future-medical">Estimated future medical costs (USD)</label>
+    <input id="future-medical" name="future-medical" type="number" value="100000" min="0" />
+
+    <label for="lost-wages">Lost wages and lost earning capacity (USD)</label>
+    <input id="lost-wages" name="lost-wages" type="number" value="40000" min="0" />
+
+    <label for="state">State where injury occurred</label>
+    <input id="state" name="state" type="text" value="California" />
+
+    <label for="age">Age at injury</label>
+    <input id="age" name="age" type="number" value="40" min="1" max="100" />
+
+    <label for="manufacturer-size">Manufacturer size</label>
+    <select id="manufacturer-size" name="manufacturer-size">
+      <option value="small">Small (regional manufacturer, limited insurance)</option>
+      <option value="medium">Medium (national brand, mid-size insurance)</option>
+      <option value="large">Large multinational (Fortune 500, well-insured)</option>
+    </select>
+
+    <button type="submit">Estimate recovery range</button>
+  </form>
+
+  <p id="result" aria-live="polite"></p>
+
+  <h2>How the calculator works</h2>
+
+  <p>Product liability damages are built from several components, each driven by different facts:</p>
+
+  <ol>
+    <li><strong>Past and future medical expenses.</strong> Emergency care, surgery, rehabilitation, prosthetics, home modifications, prescription medication, and recurring treatment projected through expected lifespan.</li>
+    <li><strong>Lost wages and lost earning capacity.</strong> Time out of work plus any permanent reduction in the ability to earn at the pre-injury level.</li>
+    <li><strong>Pain and suffering / general damages.</strong> Non-economic damages for the injury itself, ongoing pain, mental anguish, and loss of enjoyment of life. Typically calculated as a multiplier of economic damages.</li>
+    <li><strong>Property damage.</strong> The cost of the defective product itself, plus any secondary property damage caused by the failure (a battery fire that destroys a home, an airbag that totals a vehicle).</li>
+    <li><strong>Punitive damages</strong> &mdash; available in cases of gross negligence, conscious disregard, or intentional concealment of a known defect. Can substantially exceed compensatory damages in egregious cases (Ford Pinto, Vioxx, talc litigation).</li>
+  </ol>
+
+  <p>The calculator uses published settlement and verdict data by product category and injury severity, then adjusts for jurisdiction, age, defendant size, and the specific defect theory. See our <a href="/guides/how-product-liability-settlements-are-calculated">detailed methodology guide</a> for the underlying math.</p>
+
+  <h2>Settlement ranges by injury severity</h2>
+
+  <p>Published data from product liability verdict trackers shows roughly the following distribution. These are general ranges; specific outcomes vary widely with liability strength, defendant solvency, and jurisdiction.</p>
+
+  <ul>
+    <li><strong>Mild injury</strong> (treated and released, full recovery): $25,000&ndash;$150,000.</li>
+    <li><strong>Moderate injury</strong> (surgery required, extended treatment, full or near-full recovery): $150,000&ndash;$1,000,000.</li>
+    <li><strong>Serious permanent injury</strong> (ongoing impairment, scarring, disfigurement, limited disability): $750,000&ndash;$5,000,000.</li>
+    <li><strong>Catastrophic injury</strong> (paralysis, severe burns, traumatic brain injury): $2,000,000&ndash;$20,000,000+.</li>
+    <li><strong>Fatal injury / wrongful death:</strong> highly state-dependent; ranges from $500,000 in states with stringent damages caps to $10,000,000+ where the decedent had significant lost earnings and surviving dependents.</li>
+  </ul>
+
+  <p>Mass-tort and class-action cases follow a different pattern. Individual MDL bellwether verdicts have ranged from defense verdicts to nine-figure plaintiff verdicts; eventual per-claimant settlement values typically land well below the bellwether outliers once the MDL inventory resolves.</p>
+
+  <h2>Factors that move the recovery up or down</h2>
+
+  <ul>
+    <li><strong>Strict liability clarity.</strong> A clean strict liability case (recalled product, well-documented manufacturing defect, smoking-gun internal memo) commands the high end of the range. Disputed-defect cases where the manufacturer can argue user misuse, alteration, or normal wear settle lower.</li>
+    <li><strong>Defendant size and insurance.</strong> A Fortune 500 manufacturer with primary and excess policies in the hundreds of millions can write a large check. A small regional manufacturer with a $1M policy and limited assets often produces a settlement near policy limits, regardless of the merits.</li>
+    <li><strong>Jurisdiction.</strong> California, New York, Illinois, Pennsylvania, and certain Florida and New Jersey venues are plaintiff-friendly in product liability practice. Several Southern and Mountain West states impose damages caps or comparative fault rules that compress recovery.</li>
+    <li><strong>Recall history.</strong> A product subject to a CPSC, NHTSA, or FDA recall, especially one that pre-dated the injury, strengthens the strict-liability case substantially.</li>
+    <li><strong>Punitive exposure.</strong> Internal company documents showing knowledge of the defect dramatically change the settlement posture. Manufacturers settle promptly when discovery uncovers cover-up evidence.</li>
+    <li><strong>Statute of repose.</strong> A handful of states bar recovery if the product was sold more than 10&ndash;15 years before the injury, regardless of when the defect manifested.</li>
+  </ul>
+
+  <h2>What this calculator is not</h2>
+
+  <ul>
+    <li>It does not predict the outcome of any specific case.</li>
+    <li>It does not account for defendant bankruptcy, policy limits, or available umbrella coverage.</li>
+    <li>It does not capture damages caps that some states apply to non-economic or punitive damages.</li>
+    <li>It does not substitute for the detailed liability investigation, expert workup, and damages model that experienced product liability attorneys assemble for each case.</li>
+    <li>It does not provide legal advice. After a defective-product injury, the most important step is to preserve the product and consult an experienced product liability attorney.</li>
+  </ul>
+
+  <h2>Time-sensitive considerations</h2>
+
+  <p>Product liability claims have statute-of-limitations deadlines that vary by state (typically 2&ndash;4 years from the date of injury, or in some states from the date of reasonable discovery of the defect). Some states also impose a statute of repose that caps liability 10&ndash;15 years after the product was first sold, regardless of when the injury occurred. <strong>Evidence preservation is the single most time-sensitive step:</strong> the defective product itself must be preserved in its post-failure condition; do not discard it, repair it, or send it back to the manufacturer. Photographs of the product and the scene, the original packaging, receipts, the user manual, and witness statements all need to be gathered while fresh.</p>
+
+  <h2>Where to learn more</h2>
+
+  <p>For an overview of the major case types, see <a href="/case-types">case types</a>. For detailed methodology, see <a href="/guides/how-product-liability-settlements-are-calculated">how product liability settlements are calculated</a>. For an explanation of the three theories, see <a href="/guides/types-of-product-defects-and-claim-theories">types of product defects and claim theories</a>. For practical guidance after an injury, see <a href="/guides/what-to-do-after-a-defective-product-injury">what to do after a defective product injury</a>. For common myths, see <a href="/guides/common-product-liability-claim-misconceptions">common product liability claim misconceptions</a>.</p>
+
+  <script>
+    const form = document.getElementById('calc');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const defect = document.getElementById('defect-type').value;
+        const category = document.getElementById('product-category').value;
+        const severity = document.getElementById('injury-severity').value;
+        const medBills = parseInt(document.getElementById('medical-bills').value, 10) || 0;
+        const futureMed = parseInt(document.getElementById('future-medical').value, 10) || 0;
+        const lostWages = parseInt(document.getElementById('lost-wages').value, 10) || 0;
+        const state = document.getElementById('state').value;
+        const age = parseInt(document.getElementById('age').value, 10) || 40;
+        const mfgSize = document.getElementById('manufacturer-size').value;
+
+        const baseRanges = {
+          'mild': [25000, 150000],
+          'moderate': [150000, 1000000],
+          'serious': [750000, 5000000],
+          'catastrophic': [2000000, 20000000],
+          'fatal': [500000, 10000000]
+        };
+        const severityAdj = {
+          'mild': 1.0, 'moderate': 1.0, 'serious': 1.0, 'catastrophic': 1.0, 'fatal': 1.0
+        };
+        const defectMult = {
+          'design': 1.15,
+          'manufacturing': 1.0,
+          'failure-to-warn': 1.1,
+          'breach-of-warranty': 0.85
+        };
+        const categoryMult = {
+          'auto': 1.1,
+          'pharma': 1.2,
+          'medical-device': 1.2,
+          'consumer-product': 1.0,
+          'industrial': 1.05,
+          'food': 0.9,
+          'other': 1.0
+        };
+        const stateMult = {
+          'California': 1.15, 'New York': 1.15, 'Illinois': 1.1, 'Pennsylvania': 1.1,
+          'New Jersey': 1.1, 'Florida': 1.0, 'Texas': 0.9, 'Georgia': 0.95,
+          'Tennessee': 0.85, 'Virginia': 0.85
+        };
+        const mfgMult = { 'small': 0.7, 'medium': 1.0, 'large': 1.2 };
+
+        const [baseLow, baseHigh] = baseRanges[severity] || [150000, 1000000];
+        const sAdj = severityAdj[severity] || 1.0;
+        const dMult = defectMult[defect] || 1.0;
+        const cMult = categoryMult[category] || 1.0;
+        const stMult = stateMult[state] || 1.0;
+        const mMult = mfgMult[mfgSize] || 1.0;
+        const ageMult = age < 25 ? 1.2 : (age < 40 ? 1.1 : (age > 65 ? 0.85 : 1.0));
+
+        const economicFloor = medBills + futureMed + lostWages;
+        const adjustedLow = Math.round(baseLow * sAdj * dMult * cMult * stMult * mMult * ageMult);
+        const adjustedHigh = Math.round(baseHigh * sAdj * dMult * cMult * stMult * mMult * ageMult);
+        const low = Math.max(adjustedLow, Math.round(economicFloor * 1.5));
+        const high = Math.max(adjustedHigh, Math.round(economicFloor * 4));
+
+        const fmt = (n) => '$' + n.toLocaleString();
+        document.getElementById('result').innerHTML =
+          `Estimated recovery range: <strong>${fmt(low)} &ndash; ${fmt(high)}</strong>. <em>Strict liability applies in most jurisdictions; the wide range reflects defendant solvency, liability clarity, recall history, and jurisdictional variation. Verify with a licensed product liability attorney.</em>`;
+      });
+    }
+  </script>
+</BaseLayout>

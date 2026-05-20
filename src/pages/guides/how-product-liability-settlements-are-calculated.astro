@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const title = 'How Product Liability Settlements Are Calculated | productliabilitycalc.com';
+const description = 'A complete walkthrough of how a product liability settlement is built: economic damages, non-economic damages, multipliers, punitive exposure, defendant insurance, and jurisdictional adjustments.';
+---
+<BaseLayout title={title} description={description}>
+  <h1>How Product Liability Settlements Are Calculated</h1>
+  <p><em>Reviewed by Auden Cordell (AC), Editor-in-Chief &mdash; Product Liability Practice. Updated May 2026.</em></p>
+
+  <p>Settlement value in a product liability case is not arbitrary, but it is also not a single number that pops out of a formula. It is a range produced by combining several documented inputs (medical bills, lost earnings, life-care projections) with several judgment-driven inputs (pain-and-suffering multiplier, punitive exposure, jurisdictional posture, defendant insurance). This guide walks through how an experienced plaintiff's-side product liability firm builds a damages model end-to-end, and how that model becomes a settlement range when negotiations begin.</p>
+
+  <h2>Step 1: Document the economic damages</h2>
+
+  <p>The foundation of every product liability settlement is economic damages &mdash; the out-of-pocket cost of the injury. These are documented, not estimated, and they fall into three categories.</p>
+
+  <h3>Past medical expenses</h3>
+
+  <p>Every emergency room bill, ambulance bill, hospital admission, surgical bill, prescription, follow-up visit, imaging study, physical therapy session, prosthetic device, and home-health-aide invoice through the date of settlement or trial. The plaintiff's lawyer assembles a damages binder of all of these, typically tabulated by provider and date. In many states, the plaintiff can claim the billed amount (gross charges) rather than the discounted amount actually paid by insurance; in others, only the paid amount is recoverable. This is one of the most heavily litigated state-specific issues.</p>
+
+  <h3>Future medical expenses</h3>
+
+  <p>Projected costs of continuing care. For a moderate injury (say, a herniated disc requiring future surgery), the projection might be a few line items prepared by the treating physician. For a serious or catastrophic injury, the projection is built by a Certified Life Care Planner who specializes in long-term injury accommodations. The life-care plan itemizes by year: physician visits, equipment replacement schedules, medication, attendant-care hours, home modifications, vehicle modifications, periodic surgeries, prosthetic replacement (prosthetics typically replaced every 3&ndash;5 years). The plan covers the plaintiff's expected lifespan and is reduced to present value at trial using a discount rate set by an economist.</p>
+
+  <h3>Lost earnings and lost earning capacity</h3>
+
+  <p>Two components. <strong>Lost wages</strong> from the date of injury through settlement or trial, computed against pre-injury pay records. <strong>Lost earning capacity</strong> reflects any permanent reduction in the ability to earn at the pre-injury level, projected through expected work-life. For a 35-year-old who was earning $80,000 and can no longer work in their pre-injury occupation, this can be a substantial number &mdash; potentially $1.5M&ndash;$2.5M when projected through retirement age. A vocational expert and an economist work together to produce the model.</p>
+
+  <h2>Step 2: Compute non-economic damages</h2>
+
+  <p>Non-economic damages cover the things that have no invoice: pain, mental anguish, loss of enjoyment of life, scarring, disfigurement, and (in some states) loss of consortium for spouses. Two common methods produce a number:</p>
+
+  <ul>
+    <li><strong>The multiplier method.</strong> Total economic damages multiplied by a coefficient between roughly 1.5 (minor injury, modest impairment) and 5 (serious permanent injury, catastrophic outcome). Some catastrophic cases support multipliers of 7&ndash;10 in plaintiff-friendly venues.</li>
+    <li><strong>The per-diem method.</strong> A daily dollar value assigned to pain (perhaps the plaintiff's daily pre-injury earnings, or some derivative of it), multiplied by the number of days from injury through expected end of recovery, plus a residual for permanent impairment.</li>
+  </ul>
+
+  <p>Most product liability settlements use the multiplier method because it is easier to defend in negotiations and tracks the empirical pattern in published verdict data. The multiplier itself is informed by: severity of injury (catastrophic injuries support higher multipliers), permanence (permanent impairments support higher multipliers than fully-recoverable injuries), age (younger plaintiffs support higher multipliers because they have more years to live with the injury), and disfigurement (visible scarring supports a higher multiplier).</p>
+
+  <p>Some states cap non-economic damages by statute. In California, Civil Code &sect; 3333.2 caps non-economic damages in medical-malpractice cases at $250,000 (recently amended upward), but product-liability cases are not subject to this cap. Other states have product-liability-specific caps; check the controlling statute in the state where the case will be filed.</p>
+
+  <h2>Step 3: Assess punitive damages exposure</h2>
+
+  <p>Punitive damages are not available in every product case &mdash; they require a showing of conduct beyond mere negligence, typically gross negligence, reckless disregard, fraud, or intentional concealment. They are most common in cases where internal company documents (memos, emails, test reports) show that the manufacturer knew of the defect and continued to market the product without warning or recall. The Ford Pinto, Vioxx, and talc litigations all featured punitive verdicts driven by smoking-gun internal documents.</p>
+
+  <p>The U.S. Supreme Court has placed constitutional limits on punitive awards: a single-digit ratio between punitive and compensatory damages is generally the maximum constitutionally permissible (BMW v. Gore; State Farm v. Campbell). In practice, this means a case with $2M in compensatory damages can support roughly $2M&ndash;$18M in punitives, depending on the egregiousness of the conduct. Punitive awards above the 9-to-1 ratio are routinely cut on appeal.</p>
+
+  <p>For settlement purposes, punitive exposure is captured by negotiating the compensatory number upward rather than including a separate "punitive line." A case with strong punitive exposure settles for compensatory plus a premium; the premium is not labeled but it is real.</p>
+
+  <h2>Step 4: Apply jurisdictional adjustments</h2>
+
+  <p>Where the case is filed materially affects the settlement value. Adjustments come from several sources:</p>
+
+  <ul>
+    <li><strong>Damages caps.</strong> Some states cap non-economic damages, punitive damages, or both in product liability cases. Texas caps non-economic damages in some types of cases. Other states have no caps.</li>
+    <li><strong>Comparative fault.</strong> Pure comparative fault (recovery reduced by your share of fault, no matter how large) versus modified comparative fault (no recovery if you are over 50% or 51% at fault) versus contributory negligence (no recovery if you are 1% at fault; survives only in a handful of states).</li>
+    <li><strong>Joint and several liability.</strong> Full joint-and-several lets the plaintiff collect from any defendant; modified rules limit it to defendants over a certain fault threshold; abolition forces the plaintiff to collect each defendant's share separately.</li>
+    <li><strong>Statute of repose.</strong> About a third of states bar recovery if the product was sold more than a fixed period (typically 10&ndash;15 years) before the injury, regardless of when the defect manifested.</li>
+    <li><strong>Venue effects.</strong> Jury composition, judicial inclination toward summary judgment, and the strength of the local plaintiff's bar all matter. California, New York, Illinois, Pennsylvania, and New Jersey are plaintiff-friendly across the board. Texas, Georgia, and the Mountain West are defense-friendly.</li>
+  </ul>
+
+  <p>The calculator on this site captures jurisdictional adjustment with a multiplier ranging from 0.85 (defense-friendly) to 1.15 (plaintiff-friendly).</p>
+
+  <h2>Step 5: Bound by defendant insurance and assets</h2>
+
+  <p>Settlement value cannot exceed what the defendant can pay. A small regional manufacturer with a $1M primary policy and limited assets will settle a serious-injury case for near policy limits, regardless of how clearly the merits support a $5M number. A multinational with $200M+ in primary and excess product-liability coverage can write any reasonable check. The plaintiff's lawyer investigates the defendant's insurance early (through interrogatories under FRCP 26(a)(1)(A)(iv) or state-equivalent disclosure rules) and adjusts settlement strategy accordingly.</p>
+
+  <p>If the case implicates multiple defendants in the chain of distribution (manufacturer, distributor, retailer), the plaintiff's lawyer typically settles with the smaller defendants for their policy limits and litigates against the manufacturer for the balance.</p>
+
+  <h2>Step 6: Negotiate the range</h2>
+
+  <p>The plaintiff's opening demand is typically 25&ndash;100% above the realistic settlement number, depending on the negotiating posture. The defendant's opening offer is typically 50&ndash;90% below the realistic number. Both sides move toward each other through negotiation, mediation, or trial-readiness pressure. A settlement is reached when both sides agree the number is closer to a realistic trial outcome than the risk of trial justifies. Empirically, the final settlement number tends to land within roughly 20% of the trial expected value.</p>
+
+  <h2>A worked example</h2>
+
+  <p>Suppose a 35-year-old electrician is injured by an exploding lithium-ion power tool battery. He suffers second- and third-degree burns to his right hand and forearm, requires three skin-graft surgeries, can no longer work as an electrician (lost capacity), and lives with visible scarring and chronic pain. The product was recalled by the CPSC ten months before the injury, but the recall notice never reached him.</p>
+
+  <ul>
+    <li><strong>Past medical expenses:</strong> $185,000.</li>
+    <li><strong>Future medical expenses:</strong> $120,000 (scar revision, ongoing pain management).</li>
+    <li><strong>Lost wages and lost earning capacity:</strong> $1,400,000 (career change from electrician to non-trade work, projected through age 65, present value).</li>
+    <li><strong>Total economic damages:</strong> $1,705,000.</li>
+    <li><strong>Non-economic damages multiplier:</strong> 3.5 (serious permanent injury, visible scarring, chronic pain, age 35). Non-economic damages: $5,967,500.</li>
+    <li><strong>Compensatory total:</strong> ~$7.7M.</li>
+    <li><strong>Punitive exposure:</strong> moderate (pre-injury recall not adequately publicized supports a punitive argument).</li>
+    <li><strong>Jurisdiction:</strong> California, plaintiff-friendly. Adjustment 1.15.</li>
+    <li><strong>Defendant:</strong> well-insured major battery manufacturer.</li>
+    <li><strong>Estimated settlement range:</strong> $4.5M&ndash;$9M, with $6M&ndash;$7M most likely.</li>
+  </ul>
+
+  <p>The calculator on this site would produce a comparable range for this fact pattern. For the underlying methodology, see <a href="/methodology">methodology</a>. For the case types covered, see <a href="/case-types">case types</a>. For the practical steps after an injury, see <a href="/guides/what-to-do-after-a-defective-product-injury">what to do after a defective product injury</a>.</p>
+</BaseLayout>

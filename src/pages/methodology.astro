@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = 'Methodology | Product Liability Settlement Calculator | productliabilitycalc.com';
+const description = 'How the productliabilitycalc.com estimator is built: the strict liability framework, the three defect theories, damages categories, and jurisdictional adjustments.';
+---
+<BaseLayout title={title} description={description}>
+  <h1>Methodology</h1>
+  <p><em>Reviewed by Auden Cordell (AC), Editor-in-Chief &mdash; Product Liability Practice. Contributor: Holland Devlin (HD), Recall &amp; Consumer Safety Reference. Updated May 2026.</em></p>
+
+  <p>This page explains the framework the calculator uses to convert a defect theory, product category, injury severity, and a handful of state and demographic inputs into an estimated recovery range. It is meant to be auditable: a practitioner reading this should be able to see exactly which multipliers move which way and why.</p>
+
+  <h2>1. The strict liability framework</h2>
+
+  <p>Product liability law differs from ordinary negligence in one fundamental respect: in most states, an injured consumer does not have to prove that the manufacturer was careless. The Restatement (Second) of Torts &sect; 402A imposes <strong>strict liability</strong> on a seller of a product in a defective condition unreasonably dangerous to the user. The plaintiff must establish three elements: (1) the product was defective, (2) the defect existed when the product left the defendant's control, and (3) the defect caused the injury. The defendant's level of care is irrelevant to the prima facie case. This is the foundation on which every modern product liability claim is built, and it is the reason settlement values in this practice area are systematically higher than in equivalent negligence claims.</p>
+
+  <p>A handful of states have moved toward a Restatement (Third) "risk-utility" formulation, which functionally reintroduces a reasonableness inquiry for design-defect claims while leaving strict liability intact for manufacturing defects. The calculator treats both frameworks as producing comparable outcomes; the practical difference shows up in summary-judgment risk, not in settlement averages.</p>
+
+  <h2>2. The three defect theories</h2>
+
+  <ol>
+    <li><strong>Design defect.</strong> The product is unreasonably dangerous as designed. Every unit produced from that design carries the same defect. Classic examples: the Ford Pinto's rear-mounted fuel tank, the Bic lighter without a child-resistant guard, an ATV with a known rollover propensity. Design-defect cases are the highest-value category because they support class-action or MDL treatment and frequently uncover punitive-damages exposure.</li>
+    <li><strong>Manufacturing defect.</strong> One unit, or one batch, deviated from the intended design. The drug was contaminated; the tire's belt separated because of a curing-line error; the airbag inflator was assembled with the wrong propellant. The calculator weights these slightly lower than design defects because they tend to resolve on individual facts and rarely support aggregate litigation.</li>
+    <li><strong>Failure to warn.</strong> The product, even when used as intended, carries a non-obvious risk, and the manufacturer's warnings or instructions did not adequately alert the user. The pharmacy-counter painkiller without a clear interaction warning; the dietary supplement without a contraindication for pregnant users; the lithium-battery charger without thermal-runaway guidance. The calculator treats failure-to-warn cases as roughly comparable to design-defect cases in value, with somewhat higher variance because adequacy of warnings is heavily fact-specific.</li>
+  </ol>
+
+  <p>The calculator's <code>defectMult</code> reflects these relative valuations: design 1.15, failure-to-warn 1.10, manufacturing 1.0, breach-of-warranty 0.85.</p>
+
+  <h2>3. Damages categories</h2>
+
+  <p>Total recovery in a product liability case is built from five components:</p>
+
+  <ul>
+    <li><strong>Past medical expenses.</strong> Billed costs of emergency care, hospitalization, surgery, prescriptions, and follow-up appointments through the date of settlement or verdict. Reduced by collateral-source rules in some states.</li>
+    <li><strong>Future medical expenses.</strong> Projected costs of continuing care, often itemized by a life-care planner: prosthetics, scar revision, physical therapy, medication, equipment, periodic surgeries. Reduced to present value at trial.</li>
+    <li><strong>Lost earnings and lost earning capacity.</strong> Wages lost from the date of injury through settlement, plus any permanent reduction in earning capacity through expected work-life. Computed by a vocational economist for serious cases.</li>
+    <li><strong>Pain and suffering / non-economic damages.</strong> The "general damages" component, typically calculated as a multiplier of economic damages (1.5x to 5x is common, higher in catastrophic cases). Subject to statutory caps in some states.</li>
+    <li><strong>Punitive damages.</strong> Available where the manufacturer's conduct is shown to be grossly negligent, reckless, or to involve intentional concealment of a known defect. Punitive awards can equal or exceed compensatory damages and are the reason certain product liability cases (Vioxx, Bextra, talc, opioids) have produced eight- and nine-figure individual verdicts.</li>
+  </ul>
+
+  <p>The calculator's economic-floor logic ensures that the estimate cannot drop below approximately 1.5x the user's stated economic damages on the low end and 4x on the high end. This reflects the empirical pattern that product liability settlements rarely settle for less than economic damages alone once liability is established.</p>
+
+  <h2>4. Product-category adjustments</h2>
+
+  <p>Different product categories produce different settlement averages, largely because of the structure of the defendant pool and the typical defect severity:</p>
+
+  <ul>
+    <li><strong>Pharmaceutical and medical device cases:</strong> 1.20 multiplier. Defendants are well-insured, the injuries tend to be serious or chronic, and FDA-document discovery often produces punitive-damages exposure.</li>
+    <li><strong>Auto and motor vehicle component cases:</strong> 1.10 multiplier. NHTSA recall history is often available, and the defendants are well-resourced.</li>
+    <li><strong>Industrial equipment and power tools:</strong> 1.05 multiplier. Workplace injuries often have workers' compensation issues running in parallel; product cases can recover above and beyond the comp claim.</li>
+    <li><strong>Consumer products:</strong> 1.0 baseline.</li>
+    <li><strong>Food and dietary supplement cases:</strong> 0.90 multiplier. Often resolved through class actions with smaller per-claimant payouts, except in catastrophic outbreak cases (Jack in the Box, Chipotle, peanut butter Salmonella).</li>
+  </ul>
+
+  <h2>5. Jurisdictional adjustments</h2>
+
+  <p>Jurisdiction is one of the strongest predictors of settlement value. The <code>stateMult</code> captures both substantive law differences (damages caps, comparative-fault rules, statute of repose) and venue-effect differences (jury composition, judicial inclination toward summary judgment, plaintiff-bar strength):</p>
+
+  <ul>
+    <li><strong>1.15 multiplier:</strong> California, New York. Plaintiff-friendly across the board, large compensatory awards routine.</li>
+    <li><strong>1.10 multiplier:</strong> Illinois, Pennsylvania, New Jersey. Strong plaintiff practice, no major damages caps in product cases.</li>
+    <li><strong>1.00 multiplier:</strong> Florida and most other states without significant caps.</li>
+    <li><strong>0.85&ndash;0.95 multiplier:</strong> Texas, Georgia, Tennessee, Virginia. Damages caps, modified comparative fault, or defense-favorable venue effects.</li>
+  </ul>
+
+  <h2>6. Defendant size and insurance</h2>
+
+  <p>The <code>mfgMult</code> captures the practical reality that settlement value is constrained by the defendant's ability to pay. A multinational manufacturer with $200M+ in primary and excess product-liability coverage can write any reasonable check; a small regional manufacturer with a $2M policy and limited assets cannot. The multiplier is 0.7 for small, 1.0 for medium, 1.2 for large multinational defendants.</p>
+
+  <h2>7. Age adjustment</h2>
+
+  <p>Younger victims produce larger lost-earnings claims (more years of lost work) and larger pain-and-suffering awards (longer remaining lifetime to endure the injury). The age adjustment is 1.20 under 25, 1.10 under 40, 1.0 between 40 and 65, and 0.85 over 65.</p>
+
+  <h2>8. What the calculator does not capture</h2>
+
+  <ul>
+    <li><strong>Bankruptcy.</strong> Several major product-liability defendants (Johns Manville, A.H. Robins, Purdue Pharma, J&amp;J's LTL) have entered bankruptcy to resolve mass-tort exposure. Bankruptcy trusts pay claimants on a discounted, formula-based schedule that the calculator cannot reproduce.</li>
+    <li><strong>Class action versus individual claims.</strong> The same defective product can produce both an individual personal-injury claim and a participant interest in a class settlement. The calculator estimates the individual claim, not the class share.</li>
+    <li><strong>Comparative fault.</strong> If the plaintiff misused or modified the product, recovery is reduced (or barred entirely) by the applicable comparative-fault rule.</li>
+    <li><strong>Specific punitive exposure.</strong> Internal-document discovery in any given case can dramatically increase settlement value. The calculator's defect-type multiplier captures average punitive exposure, not case-specific findings.</li>
+  </ul>
+
+  <h2>9. Sources</h2>
+
+  <p>Settlement and verdict data underlying the base ranges comes from publicly available reporters: VerdictSearch, the National Law Journal's annual top-verdicts list, Jury Verdict Research's product-liability summaries, and disclosed MDL bellwether outcomes. State-by-state damages-cap data is drawn from the National Center for State Courts' product-liability database. Where a specific statute is cited in a guide, the citation is to the controlling state code.</p>
+
+  <p>For background on the three defect theories, see <a href="/guides/types-of-product-defects-and-claim-theories">types of product defects and claim theories</a>. For more detail on how the math runs end-to-end, see <a href="/guides/how-product-liability-settlements-are-calculated">how product liability settlements are calculated</a>. For our editorial standards, see <a href="/editorial">editorial</a>.</p>
+</BaseLayout>

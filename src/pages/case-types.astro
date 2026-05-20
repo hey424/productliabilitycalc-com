@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = 'Product Liability Case Types | productliabilitycalc.com';
+const description = 'A deep dive into product liability case categories: design defect, manufacturing defect, failure to warn, plus auto, pharmaceutical, medical device, consumer product, food, and industrial claims.';
+---
+<BaseLayout title={title} description={description}>
+  <h1>Product Liability Case Types</h1>
+  <p><em>Contributor: Holland Devlin (HD), Recall &amp; Consumer Safety Reference. Reviewed by Auden Cordell (AC), Editor-in-Chief. Updated May 2026.</em></p>
+
+  <p>Modern product liability practice is organized along two axes: the <strong>legal theory</strong> of the claim (which defect framework is asserted) and the <strong>product category</strong> (which industry the defective item came from). The combination determines how the case is litigated, what experts are needed, where the case is likely to be venued, and what settlement range is realistic. This page walks through both axes.</p>
+
+  <h2>The three defect theories</h2>
+
+  <h3>1. Design defect</h3>
+
+  <p>A design defect exists when the product is unreasonably dangerous as designed. Every unit produced from that design carries the same defect. The plaintiff must usually establish either (a) that the product failed to perform as safely as an ordinary consumer would expect (the "consumer expectation" test), or (b) that the risks of the design outweighed its benefits, and a safer alternative design was feasible (the "risk-utility" test). Some states apply both tests; some apply one. The defense typically tries to show that the design was the best feasible balance of safety and utility for the intended use.</p>
+
+  <p>Classic design-defect cases: the Ford Pinto's rear-mounted fuel tank, which ignited on moderate rear-end impact; the Bridgestone-Firestone Wilderness AT tires, which had a tread-separation propensity at highway speed; the GM ignition switch that could rotate to "accessory" under jostling, disabling airbags. Design-defect cases are the highest-value category in product liability practice because they support class-action and MDL treatment and frequently uncover internal documentation of the defect, which in turn supports punitive damages.</p>
+
+  <h3>2. Manufacturing defect</h3>
+
+  <p>A manufacturing defect exists when one unit, or one batch, deviated from the intended design. The drug batch was contaminated; the tire's curing was incomplete; the airbag inflator was assembled with the wrong propellant grade. The plaintiff usually does not have to attack the design itself; the case turns on showing the specific deviation and tying it to the injury. Strict liability applies cleanly: even a manufacturer that exercised perfect quality control is liable for a single defective unit that escapes the line.</p>
+
+  <p>Manufacturing-defect cases are typically smaller individual cases than design defects, but mass-manufacturing failures (e.g., the Takata airbag inflator failures, which affected tens of millions of vehicles) can produce both individual personal-injury claims and class-action property-damage claims simultaneously.</p>
+
+  <h3>3. Failure to warn (marketing defect)</h3>
+
+  <p>A failure-to-warn claim asserts that the product, even if free of design or manufacturing defects, carried a non-obvious risk that the manufacturer's labeling or instructions did not adequately address. The pharmacy-counter painkiller without a clear interaction warning; the dietary supplement without a contraindication for pregnant users; the cleaning product without adequate ventilation guidance; the lithium-battery charger without thermal-runaway warnings. The case turns on (a) whether the risk was reasonably foreseeable, (b) whether an adequate warning would have prevented the injury, and (c) whether the warning that was provided was sufficient given the user population.</p>
+
+  <p>The "learned intermediary" doctrine modifies failure-to-warn analysis for prescription drugs and medical devices: the manufacturer's duty runs to the prescribing physician, not directly to the patient. This is a significant defense in pharmaceutical cases.</p>
+
+  <h3>Companion theories</h3>
+
+  <p>Two non-strict-liability theories typically run alongside the strict-liability count:</p>
+
+  <ul>
+    <li><strong>Breach of express warranty.</strong> The manufacturer made a specific representation about the product ("rated for 200 lbs," "guaranteed leak-proof," "FDA-approved for migraine prevention"), the representation was false, and the falsity caused harm.</li>
+    <li><strong>Breach of implied warranty of merchantability.</strong> Every product sold in the ordinary course carries an implied warranty that it is fit for its ordinary purpose. UCC &sect; 2-314. The warranty can be disclaimed in commercial transactions but generally not in consumer sales.</li>
+    <li><strong>Consumer fraud / unfair trade practices.</strong> Most states have statutes that prohibit deceptive marketing of consumer products and allow private rights of action, often with statutory damages and attorney's fees.</li>
+  </ul>
+
+  <h2>Product categories</h2>
+
+  <h3>Auto and motor vehicle component cases</h3>
+
+  <p>Defective automobile components are among the most common product liability cases. Major recurring categories: defective airbags (Takata inflators, GM ignition-switch-disabled airbags), defective tires (Firestone Wilderness AT, certain Goodyear G159 RV tires), defective brake systems, defective ignition switches, defective seatbelts and seat back-design that fails on rear impact, and SUV rollover propensity. NHTSA recall data is often central to liability proof. Settlement ranges span $250K for moderate injuries to nine figures for catastrophic injury or fatality cases with clear defect documentation.</p>
+
+  <h3>Pharmaceutical cases</h3>
+
+  <p>Pharmaceutical product liability is the largest mass-tort practice area. Major historical MDLs: Vioxx, Bextra, Zantac (NDMA contamination), opioids (covering both prescription and street-diversion theories), Roundup (glyphosate &mdash; though technically an herbicide, litigated under product-liability rules), talc-based body powders, hormone-replacement therapy, transvaginal mesh (which crosses into the medical-device category), and most recently certain heartburn medications and certain hair-relaxer products. Pharmaceutical cases are characterized by extensive FDA-document discovery, learned-intermediary defenses, and frequent eight- and nine-figure individual verdicts in bellwether trials.</p>
+
+  <h3>Medical device cases</h3>
+
+  <p>Medical-device cases include defective hip implants (DePuy ASR, Stryker Rejuvenate), transvaginal surgical mesh, defective pacemakers and implantable cardiac defibrillators, defective IVC filters (Bard, Cook), defective insulin pumps, and defective surgical robots. The FDA's 510(k) clearance pathway has been a recurring source of litigation; products cleared via 510(k) (rather than full premarket approval) generally do not enjoy federal preemption and remain liable under state tort law. Medical-device cases routinely produce settlements in the high six figures to mid-seven figures per individual claimant.</p>
+
+  <h3>Consumer products</h3>
+
+  <p>Consumer-product cases span a wide range: defective children's toys (lead paint, choking hazards, magnetic-set ingestion), defective appliances (refrigerators with fire-prone compressors, washing-machine spin failures, microwave radiation leakage), e-cigarettes and vaping devices (battery fires, EVALI lung injury), lithium-battery fires (hoverboards, e-bikes, laptops, power banks), defective baby products, defective sporting equipment, and defective home-security systems. CPSC recall data is often central. Settlement ranges vary widely depending on injury severity.</p>
+
+  <h3>Industrial equipment and power tools</h3>
+
+  <p>Industrial-equipment cases typically involve workplace injuries with a workers' compensation claim running in parallel. Common recurring categories: table-saw amputations (subject of significant litigation over flesh-detection retrofit technology), forklift instability, defective lifting equipment, defective scaffolding and ladders, and defective grain-handling equipment. The product case can recover compensatory and punitive damages above and beyond what workers' compensation pays for the same injury.</p>
+
+  <h3>Food and dietary supplement cases</h3>
+
+  <p>Food-contamination cases (Salmonella, E. coli, Listeria, hepatitis A outbreaks) typically produce class-action settlements with moderate per-claimant payouts, except in catastrophic-injury or wrongful-death cases where individual claims can produce seven- and eight-figure outcomes. Dietary supplement cases often turn on undisclosed ingredients (sibutramine in weight-loss products, ephedra-related cardiovascular events). Recall databases at FDA and USDA are central to liability proof.</p>
+
+  <h3>Asbestos and toxic substance cases</h3>
+
+  <p>Asbestos cases are a long-running mass-tort category that intersects with product liability. Most major defendants have been through bankruptcy; recovery typically runs through the asbestos trusts established under &sect; 524(g) of the Bankruptcy Code. The calculator on this site does not estimate asbestos-trust recoveries because the trust-distribution schedules are formulaic and do not align with conventional tort settlement modeling.</p>
+
+  <p>For the underlying methodology, see <a href="/methodology">methodology</a>. For practical guidance, see the <a href="/guides">guides</a>. To run the estimator, return to the <a href="/">home page calculator</a>.</p>
+</BaseLayout>

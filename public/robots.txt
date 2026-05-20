@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://productliabilitycalc.com/sitemap-index.xml
